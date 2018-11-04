@@ -18,7 +18,7 @@ const uri = 'mongodb://jmccommas:Monster2018!@ds151393.mlab.com:51393/bwm-ng-dev
 (async function() {
   try {
 
-    const client = await MongoClient.connect(uri,{ useNewUrlParser: true });
+    const client = await MongoClient.connect(uri,{});
     console.log("connection successful");
 
     client.close();
@@ -28,23 +28,6 @@ const uri = 'mongodb://jmccommas:Monster2018!@ds151393.mlab.com:51393/bwm-ng-dev
 
 })()
 
-
-
-
-
-
-// mongoose.connect((dburl), function(err) {
-//   mongoose.connection.on('connected', function() {
-//       console.log('Mongoose connected to ' + dburl);
-//     });
-//     mongoose.connection.on('error', function(err) {
-//       console.log('Mongoose connection error: ' + err);
-//     });
-//     mongoose.connection.on('disconnected', function() {
-//       console.log('Mongoose disconnected');
-//     });
-  
-// });
 
 app.get('/rentals', (req, res) => {
    res.json({'success': true})
@@ -79,6 +62,8 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 // Enable parsing of posted forms
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+const rentalRoutes = require('./routes/rental');
+const userRoutes = require('./routes/users');
 
 // Add some routing
 // app.use('/api', routes);
