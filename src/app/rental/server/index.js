@@ -12,20 +12,39 @@ const path = require('path');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Rental =require('./models/rental');
-var dburl = 'mongodb://jmccommas:Monster2018!@ds151393.mlab.com:51393/bwm-ng-dev';
-// var retry = null;
-mongoose.connect((dburl), function(err) {
-  mongoose.connection.on('connected', function() {
-      console.log('Mongoose connected to ' + dburl);
-    });
-    mongoose.connection.on('error', function(err) {
-      console.log('Mongoose connection error: ' + err);
-    });
-    mongoose.connection.on('disconnected', function() {
-      console.log('Mongoose disconnected');
-    });
+const { MongoClient } = require("mongodb");
+const uri = 'mongodb://jmccommas:Monster2018!@ds151393.mlab.com:51393/bwm-ng-dev';  // mongodb://localhost - will fail
+
+(async function() {
+  try {
+
+    const client = await MongoClient.connect(uri,{ useNewUrlParser: true });
+    console.log("connection successful");
+
+    client.close();
+  } catch(e) {
+    console.error(e)
+  }
+
+})()
+
+
+
+
+
+
+// mongoose.connect((dburl), function(err) {
+//   mongoose.connection.on('connected', function() {
+//       console.log('Mongoose connected to ' + dburl);
+//     });
+//     mongoose.connection.on('error', function(err) {
+//       console.log('Mongoose connection error: ' + err);
+//     });
+//     mongoose.connection.on('disconnected', function() {
+//       console.log('Mongoose disconnected');
+//     });
   
-});
+// });
 
 app.get('/rentals', (req, res) => {
    res.json({'success': true})
