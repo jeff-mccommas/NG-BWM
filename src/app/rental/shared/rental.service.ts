@@ -4,5 +4,11 @@ import { Rental } from "./rental.model";
 import { HttpClient } from "@angular/common/http";
 @Injectable()
 export class RentalService {
-  public getRentalById(rentalId: string): Observable<Rental> {}
+  constructor(private http: HttpClient) {}
+  public getRentalById(rentalId: string): Observable<any> {
+    return this.http.get("localhost:3001/api/v1/rentals" + rentalId);
+  }
+  public getRentals(): Observable<any> {
+    return this.http.get("localhost:3001/api/v1/rentals");
+  }
 }
