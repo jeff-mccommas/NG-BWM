@@ -37,7 +37,7 @@ app.get('/rentals', (req, res) => {
 
 
 // Define the port to run on
-app.set('port', 3000);
+app.set('port', 3001);
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
@@ -66,7 +66,7 @@ const rentalRoutes = require('./routes/rental');
 // const userRoutes = require('./routes/users');
 
 // Add some routing
-// app.use('/api', routes);
+app.use('/api/v1/rentals', rentalRoutes);
 
 // Listen for requests
  const PORT= process.env.PORT ||3001;
