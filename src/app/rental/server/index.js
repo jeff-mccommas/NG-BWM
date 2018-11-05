@@ -63,7 +63,7 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const rentalRoutes = require('./routes/rental');
-const userRoutes = require('./routes/users');
+// const userRoutes = require('./routes/users');
 
 // Add some routing
 // app.use('/api', routes);
