@@ -10,13 +10,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RentailDetailComponent } from "../rentail-detail/rentail-detail.component";
 import { HttpClientModule } from "@angular/common/http";
 export const routes: Routes = [
-  { path: "rentals", component: RentalComponent },
   {
-    path: "",
-    component: RentalListComponent,
+    path: "rentals",
+    component: RentalComponent,
     children: [
       { path: "", component: RentalListComponent },
-      { path: "rentalId", component: RentailDetailComponent }
+      { path: ":rentalId", component: RentailDetailComponent }
     ]
   }
 ];

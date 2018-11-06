@@ -1,19 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import {Routes, RouterModule} from '@angular/router';
-import {RentalModule} from './rental/shared/rental.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { AppComponent } from "./app.component";
+import { HeaderComponent } from "./header/header.component";
+import { Routes, RouterModule } from "@angular/router";
+import { RentalModule } from "./rental/shared/rental.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-const  routes: Routes = [
-]
+const routes: Routes = [
+  { path: "", redirectTo: "/rentals", pathMatch: "full" }
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
 
@@ -25,4 +23,4 @@ const  routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
