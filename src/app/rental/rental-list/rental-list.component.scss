@@ -1,7 +1,11 @@
 @import "../../../variables";
-html,body,p{
+
+body,
+html,
+p {
   color: $main-text-color;
 }
+
 #rentalListing {
   .title {
     font-size: 30px;
@@ -9,38 +13,44 @@ html,body,p{
     margin-bottom: 20px;
   }
 
-
-  a:hover,&:focus{
+  &:focus,
+  a:hover {
     text-decoration: none;
   }
   /* SINGLE CARD STYLES*/
   .bwm-card {
     border: none;
 
+    .apartment {
+      color: #a72da3;
+    }
+
+    .condo {
+      color: #d68000;
+    }
+
+    .house {
+      color: #bf1818;
+    }
 
     .card-block {
       padding-top: 8px;
-
 
       .card-subtitle {
         margin: 0;
         font-weight: 500;
         font-size: 12px;
         text-transform: uppercase;
-        color: #16861a;
       }
-
-
-
 
       .card-title {
         font-size: 12px;
         margin: 3px 0;
       }
+
       h3.card-title {
         font-size: .5rem!important;
       }
-
 
       .card-text {
         font-size: 14px!important;
