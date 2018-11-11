@@ -9,6 +9,7 @@ import { RentalService } from "./rental.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RentailDetailComponent } from "../rentail-detail/rentail-detail.component";
 import { HttpClientModule } from "@angular/common/http";
+import { NgPipesModule } from "ngx-pipes";
 export const routes: Routes = [
   {
     path: "rentals",
@@ -26,6 +27,8 @@ export const routes: Routes = [
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
+    NgPipesModule,
+
     RouterModule.forChild(routes)
   ],
   providers: [RentalService],
